@@ -25,15 +25,18 @@ paths:
                 $ref: '#/components/schemas/helloResponse'
 components:
   schemas:
-    helloResponse:
-      type: object
-      properties:
-        content:  # the field key
-          type: string
-          description: Greeting content
     helloRequest:
       type: object
       properties:
         key:  # the field key
           type: string
           description: Greeting key
+    helloResponse:
+      type: object
+      properties:
+        content:  # the field key
+          type: string
+          description: Greeting content
+        url:  # the field key
+          type: string
+          description: URL of the greeting
