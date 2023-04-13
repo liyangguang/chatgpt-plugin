@@ -19,28 +19,38 @@ async function generateImage(prompt: string): Promise<string> {
     apiKey: process.env.OPENAI_API_KEY,
   }));
   
-  const response = await openai.createImage({
-    prompt: `${prompt}. In a funny style.`,
-    n: 1,
-    size: '1024x1024',
-  });
-  const url = response.data.data[0].url!;
-  console.info('[DALL-E] Done', url);
-  return url;
+  try {
+    const response = await openai.createImage({
+      prompt: `${prompt}. In a funny style.`,
+      n: 1,
+      size: '1024x1024',
+    });
+    const url = response.data.data[0].url!;
+    console.info('[DALL-E] Done', url);
+    return url;
+  } catch (e) {
+    console.error('[DALL-E] Error', e.message);
+    throw e;
+  }
 }
 
 async function getTinyUrl(url: string): Promise<string> {
   console.info('[TinyURL] Shortening');
-  const res = await fetch('https://api.tinyurl.com/create', {
-    method: 'POST',
-    headers: {
-      Authorization: `Bearer ${process.env.TINY_URL_TOKEN}`,
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({url}),
-  });
-  const body = await res.json();
-  const shortUrl = body.data.tiny_url ?? '';
-  console.info('[TinyURL] Done', shortUrl);
-  return shortUrl;
+  try {
+    const res = await fetch('https://api.tinyurl.com/create', {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${process.env.TINY_URL_TOKEN}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({url}),
+    });
+    const body = await res.json();
+    const shortUrl = body.data.tiny_url ?? '';
+    console.info('[TinyURL] Done', shortUrl);
+    return shortUrl;
+  } catch (e) {
+    console.error('[TinyURL]', e.message);
+    throw e;
+  }
 }
