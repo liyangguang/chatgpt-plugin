@@ -1,0 +1,18 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "Yangguang plugin",
+  "name_for_model": "yangguang",
+  "description_for_human": "A test plugin by Yangguang",
+  "description_for_model": "A test plugin by Yangguang",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "openapi",
+    "url": "http://localhost:3000/openapi.yaml",
+    "is_user_authenticated": false
+  },
+  "logo_url": "http://localhost:3000/plugin-icon.webp",
+  "contact_email": "yangguang@shv.com",
+  "legal_info_url": "http://localhost:3000/legal"
+}
