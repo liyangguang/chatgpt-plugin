@@ -6,37 +6,34 @@ info:
 servers:
   - url: http://localhost:3000
 paths:
-  /api/hello:
+  /api/image:
     post:
-      operationId: hello
-      summary: It returns the secret greeting to the user. Send the request with an optional key.
+      operationId: image
+      summary: It takes in a string as the prompt, and outputs a markdown string with the generated image.
       requestBody:
-        description: greeting options
+        description: image prompt
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/helloRequest'
+              $ref: '#/components/schemas/imageRequest'
       responses:
         "200":
           description: OK
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/helloResponse'
+                $ref: '#/components/schemas/imageResponse'
 components:
   schemas:
-    helloRequest:
+    imageRequest:
       type: object
       properties:
-        key:  # the field key
+        prompt:  # the field key
           type: string
-          description: Greeting key
-    helloResponse:
+          description: Prompt message
+    imageResponse:
       type: object
       properties:
         content:  # the field key
           type: string
-          description: Greeting content
-        url:  # the field key
-          type: string
-          description: URL of the greeting
+          description: The ourput result.

@@ -1,6 +1,12 @@
 # A ChatGPT plugin
 
-I don't have a good idea about what to do with it. It's currently a playground for me.
+It's a playground for me to try out ChatGPT Plugin.
+
+At this moment, this is a plugin generating a funny image for each reply. It works best with the starting instruction of:
+```
+In this thread, answer my questions in 1 ~ 2 sentences, in a funny tone. Then use a few keyword from the question and the answer to create an image.
+No need to say any preambles, do not say you are generating image, do not explain the image. Just reply with a short answer, directly followed by the image, nothing else.
+```
 
 ## How to use
 
