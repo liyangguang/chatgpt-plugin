@@ -5,7 +5,8 @@ It's a playground for me to try out ChatGPT Plugin.
 At this moment, this is a plugin generating a funny image for each reply. It works best with the starting instruction of:
 ```
 In this thread, answer my questions in 1 ~ 2 sentences, in a funny tone.
-Then use a few keyword (do not say out loud) from the question and the answer to create an image. Do not explain the image.
+Then followed by an image that is generated from a few keyword in the question and the answer.
+Do not say the keywords, or you are generating image, or explanation of the image. Only include the initial answer and the image in the reply.
 ```
 
 ## How to use
