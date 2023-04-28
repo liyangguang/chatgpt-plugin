@@ -47,6 +47,8 @@ async function getTinyUrl(url: string): Promise<string> {
     });
     const body = await res.json();
     const shortUrl = body.data.tiny_url ?? '';
+    // If shortening failed, print the whole url...
+    if (!shortUrl) return url;
     console.info('[TinyURL] Done', shortUrl);
     return shortUrl;
   } catch (e) {
